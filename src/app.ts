@@ -4,6 +4,7 @@ import { OpenAPIHono } from '@hono/zod-openapi';
 import notFound from '@/middlewares/not-found';
 import onError from '@/middlewares/on-error';
 import { pinoLogger } from '@/middlewares/pino-logger';
+import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 
 type AppBinding = {
   Variables: {
@@ -14,6 +15,7 @@ type AppBinding = {
 const app = new OpenAPIHono<AppBinding>();
 
 app.use(pinoLogger());
+app.use(serveEmojiFavicon('🎙️'));
 
 app.get('/', (c) => {
   return c.text('Hello Hono!');
