@@ -7,6 +7,12 @@ import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 
 import { AppBinding } from '@/lib/types';
 
+export function createRouter() {
+  return new OpenAPIHono<AppBinding>({
+    strict: false,
+  });
+}
+
 export default function createApp() {
   const app = new OpenAPIHono<AppBinding>({
     strict: false,
