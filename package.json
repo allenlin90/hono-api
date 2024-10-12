@@ -6,6 +6,8 @@
   "dependencies": {
     "@hono/node-server": "^1.13.2",
     "@hono/zod-openapi": "^0.16.4",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
     "hono": "^4.6.4",
     "hono-pino": "^0.3.0",
     "pino": "^9.4.0",
