@@ -8,7 +8,9 @@ import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 import { AppBinding } from '@/lib/types';
 
 export default function createApp() {
-  const app = new OpenAPIHono<AppBinding>();
+  const app = new OpenAPIHono<AppBinding>({
+    strict: false,
+  });
 
   app.use(pinoLogger());
   app.use(serveEmojiFavicon('🎙️'));
