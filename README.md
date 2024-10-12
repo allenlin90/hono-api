@@ -15,3 +15,6 @@ open http://localhost:3000
 3. Config log `level` of the logger such as `info` (default). 
    1. Note that `console.log` is at `info` level.
    2. [log level](https://github.com/pinojs/pino/blob/main/docs/api.md#level-string)
+
+# OpenAPI
+1. [OpenAPI setup with app](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
