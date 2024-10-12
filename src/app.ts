@@ -1,13 +1,9 @@
-import { config } from 'dotenv';
-import { expand } from 'dotenv-expand';
 import type { PinoLogger } from 'hono-pino';
 import { OpenAPIHono } from '@hono/zod-openapi';
 
 import notFound from '@/middlewares/not-found';
 import onError from '@/middlewares/on-error';
 import { pinoLogger } from '@/middlewares/pino-logger';
-
-expand(config());
 
 type AppBinding = {
   Variables: {

@@ -1,6 +1,7 @@
 import type { ErrorHandler } from 'hono';
 import type { StatusCode } from 'hono/utils/http-status';
 
+import env from '@/env';
 import { INTERNAL_SERVER_ERROR, OK } from '@/http-status-codes';
 
 const onError: ErrorHandler = (err, c) => {
@@ -12,12 +13,12 @@ const onError: ErrorHandler = (err, c) => {
       : INTERNAL_SERVER_ERROR;
 
   // eslint-disable-next-line node/prefer-global/process
-  const env = c.env?.NODE_ENV || process.env?.NODE_ENV;
+  const nodeEnv = c.env?.NODE_ENV || env?.NODE_ENV;
 
   return c.json(
     {
       message: err.message,
-      stack: env === 'production' ? undefined : err.stack,
+      stack: nodeEnv === 'production' ? undefined : err.stack,
     },
     statusCode
   );
