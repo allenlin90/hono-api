@@ -1,9 +1,33 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import fs from 'node:fs';
+import { execSync } from 'node:child_process';
+
+import {
+  afterAll,
+  beforeAll,
+  describe,
+  expect,
+  expectTypeOf,
+  it,
+} from 'vitest';
 import { testClient } from 'hono/testing';
-import router from './tasks.index';
+
+import env from '@/env';
 import createApp, { createTestApp } from '@/lib/create-app';
 
+import router from './tasks.index';
+
+if (env.NODE_ENV !== 'test') {
+  throw new Error("NODE_ENV must be 'test'");
+}
+
+const client = testClient(createApp().route('/', router));
+
 describe('tasks list', () => {
+  beforeAll(async () => {
+    execSync('yarn drizzle-kit push');
+    // TODO: cleanup test db
+  });
+
   it('responds with an array', async () => {
     const testRouter = createTestApp(router);
 
@@ -15,10 +39,6 @@ describe('tasks list', () => {
   });
 
   it('responds with an array with hono test helper testClient', async () => {
-    const testApp = createApp();
-    const testRouter = testApp.route('/', router);
-    const client = testClient(testRouter);
-
     const response = await client.tasks.$get();
     const json = await response.json();
 
@@ -26,8 +46,6 @@ describe('tasks list', () => {
   });
 
   it('validates the id param', async () => {
-    const client = testClient(createApp().route('/', router));
-
     const response = await client.tasks[':id'].$get({
       param: {
         id: 'wat',
@@ -38,8 +56,6 @@ describe('tasks list', () => {
   });
 
   it('validates the body when creating', async () => {
-    const client = testClient(createApp().route('/', router));
-
     const response = await client.tasks.$post({
       // @ts-expect-error
       json: {
