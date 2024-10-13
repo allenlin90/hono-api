@@ -18,3 +18,6 @@ open http://localhost:3000
 
 # OpenAPI
 1. [OpenAPI setup with app](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
+2. [Scalar Hono](https://github.com/scalar/scalar/blob/main/packages/hono-api-reference/README.md)
+3. `http://localhost:{{PORT}}/doc` to check on API documentation spec. 
+4. `http://localhost:{{PORT}}/reference` to check on interactive scalar API reference.
