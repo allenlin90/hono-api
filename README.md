@@ -27,3 +27,40 @@ open http://localhost:3000
 
 # DB and Drizzle client 
 1. `yarn drizzle-kit studio` to open an interactive database client to work with the DB.
+
+# Generate client SDK for all routes or RPC spec
+1. Check on `localhost:{{PORT}}/doc` to generate the SDK with openapi generator.
+
+# Create Hono Client with RPC
+
+```ts
+// ./src/app.ts
+import createApp from '@/lib/create-app';
+import configureOpenAPI from '@/lib/configure-open-api';
+import index from '@/routes/index.route';
+import tasks from '@/routes/tasks/tasks.index';
+
+const app = createApp();
+
+const routes = [index, tasks] as const;
+
+configureOpenAPI(app);
+
+routes.forEach((route) => {
+  app.route('/', route);
+});
+
+export type AppType = (typeof routes)[number];
+
+export default app;
+```
+
+```ts
+// for example
+// ./src/lib/client.ts
+import { hc } from 'hono/client';
+import type { AppType } from '@/app';
+
+// e.g. APP_HOST_URL=http://localhost:{{PORT}}
+const client = hc<AppType>('APP_HOST_URL');
+```
