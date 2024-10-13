@@ -12,14 +12,12 @@ import defaultHook from '@/openapi/default-hook';
 export function createRouter() {
   return new OpenAPIHono<AppBinding>({
     strict: false,
+    defaultHook,
   });
 }
 
 export default function createApp() {
-  const app = new OpenAPIHono<AppBinding>({
-    strict: false,
-    defaultHook,
-  });
+  const app = createRouter();
 
   app.use(pinoLogger());
   app.use(serveEmojiFavicon('🎙️'));
