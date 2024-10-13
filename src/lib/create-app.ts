@@ -5,7 +5,7 @@ import onError from '@/middlewares/on-error';
 import { pinoLogger } from '@/middlewares/pino-logger';
 import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 
-import type { AppBinding } from '@/lib/types';
+import type { AppBinding, AppOpenAPI } from '@/lib/types';
 
 import defaultHook from '@/openapi/default-hook';
 
@@ -26,4 +26,10 @@ export default function createApp() {
   app.onError(onError);
 
   return app;
+}
+
+export function createTestApp(router: AppOpenAPI) {
+  const testApp = createApp();
+  testApp.route('/', router);
+  return testApp;
 }
