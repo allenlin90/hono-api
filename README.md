@@ -24,3 +24,6 @@ open http://localhost:3000
 
 ## Validation
 1. Added `defaultHook` in configuration to startup an `app` instance with `OpenAPIHono`.
+
+# DB and Drizzle client 
+1. `yarn drizzle-kit studio` to open an interactive database client to work with the DB.
