@@ -7,6 +7,8 @@ import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 
 import type { AppBinding } from '@/lib/types';
 
+import defaultHook from '@/openapi/default-hook';
+
 export function createRouter() {
   return new OpenAPIHono<AppBinding>({
     strict: false,
@@ -16,6 +18,7 @@ export function createRouter() {
 export default function createApp() {
   const app = new OpenAPIHono<AppBinding>({
     strict: false,
+    defaultHook,
   });
 
   app.use(pinoLogger());
