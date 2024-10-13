@@ -6,6 +6,7 @@ import createMessageObjectSchema from '@/openapi/schemas/create-message-object';
 
 const router = createRouter().openapi(
   createRoute({
+    tag: ['Index'],
     method: 'get',
     path: '/',
     responses: {
@@ -18,7 +19,7 @@ const router = createRouter().openapi(
   (c) => {
     return c.json(
       {
-      message: 'Erisa API',
+        message: 'Erisa API',
       },
       HttpStatusCodes.OK
     );
