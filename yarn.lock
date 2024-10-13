@@ -147,12 +147,40 @@
   resolved "https://registry.yarnpkg.com/@hono/zod-validator/-/zod-validator-0.3.0.tgz#987ffccdb5fc1b5fa87c321ad161e5f1f159e6a6"
   integrity sha512-7XcTk3yYyk6ldrO/VuqsroE7stvDZxHJQcpATRAyha8rUxJNBPV3+6waDrARfgEqxOVlzIadm3/6sE/dPseXgQ==
 
+"@scalar/hono-api-reference@^0.5.153":
+  version "0.5.153"
+  resolved "https://registry.yarnpkg.com/@scalar/hono-api-reference/-/hono-api-reference-0.5.153.tgz#3710b891e16ce4a835ab64dd166637790b7f4e66"
+  integrity sha512-Eo4AeRanOthMI9uD/vC1GZ70ztt9aty+xoL9tUe1TUvhoTpFmGOLKzwRCFyqMSc0W16qcWXo/hkVY0BcYS+oEg==
+  dependencies:
+    "@scalar/types" "0.0.14"
+
+"@scalar/openapi-types@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@scalar/openapi-types/-/openapi-types-0.1.2.tgz#8137b3547776c9354529e95a5ba285e01ef097ed"
+  integrity sha512-TxiAbs9Rw5qnMs/vvg+4Zx1Xf/5RhJXf8w6JOYSgvp4d2IKkOKc9eSOhid8ySvz7bWCjF2yWd8eHNc/BFs8cXg==
+
+"@scalar/types@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@scalar/types/-/types-0.0.14.tgz#c16fc65bb596205b27e425735506dc67a8120774"
+  integrity sha512-4yzW5d9nWtRE3eVNfLnuVUScSMf325PYJ9qCJ8CpaVP7hnWrTv9xGw/2n7csEKzu3QJkdff0myibHfxXJ6ICig==
+  dependencies:
+    "@scalar/openapi-types" "0.1.2"
+    "@unhead/schema" "^1.9.5"
+
 "@types/node@^20.11.17":
   version "20.16.11"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.11.tgz#9b544c3e716b1577ac12e70f9145193f32750b33"
   integrity sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==
   dependencies:
     undici-types "~6.19.2"
+
+"@unhead/schema@^1.9.5":
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/@unhead/schema/-/schema-1.11.7.tgz#917738d3adf21d5baa3791a17948c425f7e41808"
+  integrity sha512-j9uN7T63aUXrZ6yx2CfjVT7xZHjn0PZO7TPMaWqMFjneIH/NONKvDVCMEqDlXeqdSIERIYtk/xTHgCUMer5eyw==
+  dependencies:
+    hookable "^5.5.3"
+    zhead "^2.2.4"
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -296,6 +324,11 @@ hono@^4.6.4:
   version "4.6.4"
   resolved "https://registry.yarnpkg.com/hono/-/hono-4.6.4.tgz#fbca01aa2b68dd4aea49d6eddf6b97a91cd9019f"
   integrity sha512-T5WqBkTOcIQblqBKB5mpzaH/A+dSpvVe938xZJCHOmOuYfF7DSwE/9/10+BMvwSPq9N/f6LiQ38HxrZSQOsXKw==
+
+hookable@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/hookable/-/hookable-5.5.3.tgz#6cfc358984a1ef991e2518cb9ed4a778bbd3215d"
+  integrity sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==
 
 ieee754@^1.2.1:
   version "1.2.1"
@@ -495,6 +528,11 @@ yaml@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.1.tgz#c9772aacf62cb7494a95b0c4f1fb065b563db130"
   integrity sha512-bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==
+
+zhead@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/zhead/-/zhead-2.2.4.tgz#87cd1e2c3d2f465fa9f43b8db23f9716dfe6bed7"
+  integrity sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==
 
 zod@^3.23.8:
   version "3.23.8"
