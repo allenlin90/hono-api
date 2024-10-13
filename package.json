@@ -1,5 +1,5 @@
 {
-  "name": "erisa-api",
+  "name": "hono-api",
   "type": "module",
   "version": "1.0.0",
   "scripts": {

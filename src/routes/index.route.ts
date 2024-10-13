@@ -11,15 +11,15 @@ const router = createRouter().openapi(
     path: '/',
     responses: {
       [HttpStatusCodes.OK]: jsonContent(
-        createMessageObjectSchema('Erisa API'),
-        'Erisa API Index'
+        createMessageObjectSchema('Hono API'),
+        'Hono API Index'
       ),
     },
   }),
   (c) => {
     return c.json(
       {
-        message: 'Erisa API',
+        message: 'Hono API',
       },
       HttpStatusCodes.OK
     );
