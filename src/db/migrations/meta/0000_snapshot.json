@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "113372d7-c72f-48c3-879d-ec9abaa8601e",
+  "id": "de1e3b14-e30b-44ad-bf03-aeb4fb89ed44",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "tasks": {
@@ -34,8 +34,7 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false,
-          "default": "(cast((julianday('now') - 2440587.5)*86400000 as integer))"
+          "autoincrement": false
         },
         "updated_at": {
           "name": "updated_at",
