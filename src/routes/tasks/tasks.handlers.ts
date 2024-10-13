@@ -7,6 +7,7 @@ import type {
   ListRoute,
 } from '@/routes/tasks/tasks.routes';
 import * as HttpStatusCodes from '@/http-status-codes';
+import * as HttpStatusPhrases from '@/http-status-phrases';
 
 export const list: AppRouteHandler<ListRoute> = async (c) => {
   const tasks = await db.query.tasks.findMany();
@@ -26,5 +27,14 @@ export const getOne: AppRouteHandler<GetOneRoute> = async (c) => {
       return operators.eq(fields.id, id);
     },
   });
+  if (!task) {
+    return c.json(
+      {
+        message: HttpStatusPhrases.NOT_FOUND,
+      },
+      HttpStatusCodes.NOT_FOUND
+    );
+  }
+
   return c.json(task, HttpStatusCodes.OK);
 };

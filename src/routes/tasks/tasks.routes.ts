@@ -5,6 +5,7 @@ import { insertTasksSchema, selectTasksSchema } from '@/db/schema';
 import jsonContentRequired from '@/openapi/helpers/json-content-required';
 import createErrorSchema from '@/openapi/schemas/create-error-schema';
 import IdParamsSchema from '@/openapi/schemas/id-params';
+import { notFoundSchema } from '@/db/constants';
 
 const tags = ['Tasks'];
 
@@ -52,6 +53,7 @@ export const getOne = createRoute({
       createErrorSchema(IdParamsSchema),
       'Invalid id error'
     ),
+    [HttpStatusCodes.NOT_FOUND]: jsonContent(notFoundSchema, 'Task not found'),
   },
 });
 
