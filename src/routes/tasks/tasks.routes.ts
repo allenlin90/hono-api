@@ -3,6 +3,7 @@ import * as HttpStatusCodes from '@/http-status-codes';
 import jsonContent from '@/openapi/helpers/json-content';
 import { insertTasksSchema, selectTasksSchema } from '@/db/schema';
 import jsonContentRequired from '@/openapi/helpers/json-content-required';
+import createErrorSchema from '@/openapi/schemas/create-error-schema';
 
 const tags = ['Tasks'];
 
@@ -29,6 +30,10 @@ export const create = createRoute({
     [HttpStatusCodes.CREATED]: jsonContent(
       selectTasksSchema,
       'The created task'
+    ),
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+      createErrorSchema(insertTasksSchema),
+      'The validation error(s)'
     ),
   },
 });
