@@ -5,7 +5,7 @@ import onError from '@/middlewares/on-error';
 import { pinoLogger } from '@/middlewares/pino-logger';
 import serveEmojiFavicon from '@/middlewares/serve-emoji-favicon';
 
-import { AppBinding } from '@/lib/types';
+import type { AppBinding } from '@/lib/types';
 
 export function createRouter() {
   return new OpenAPIHono<AppBinding>({
