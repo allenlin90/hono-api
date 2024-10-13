@@ -2,7 +2,10 @@ import { createRoute, z } from '@hono/zod-openapi';
 import * as HttpStatusCodes from '@/http-status-codes';
 import jsonContent from '@/openapi/helpers/json-content';
 
-const list = createRoute({
+const tags = ['Tasks'];
+
+export const list = createRoute({
+  tags,
   path: '/tasks',
   method: 'get',
   responses: {
