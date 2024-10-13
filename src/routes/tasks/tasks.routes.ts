@@ -4,6 +4,7 @@ import jsonContent from '@/openapi/helpers/json-content';
 import { insertTasksSchema, selectTasksSchema } from '@/db/schema';
 import jsonContentRequired from '@/openapi/helpers/json-content-required';
 import createErrorSchema from '@/openapi/schemas/create-error-schema';
+import IdParamsSchema from '@/openapi/schemas/id-params';
 
 const tags = ['Tasks'];
 
@@ -38,5 +39,22 @@ export const create = createRoute({
   },
 });
 
+export const getOne = createRoute({
+  tags,
+  path: '/tasks/{id}',
+  method: 'get',
+  request: {
+    params: IdParamsSchema,
+  },
+  responses: {
+    [HttpStatusCodes.OK]: jsonContent(selectTasksSchema, 'The requested task'),
+    [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+      createErrorSchema(IdParamsSchema),
+      'Invalid id error'
+    ),
+  },
+});
+
 export type ListRoute = typeof list;
 export type CreateRoute = typeof create;
+export type GetOneRoute = typeof getOne;
