@@ -1,8 +1,16 @@
 import { config } from 'dotenv';
 import { expand } from 'dotenv-expand';
+import path from 'path';
 import { z, type ZodError } from 'zod';
 
-expand(config());
+expand(
+  config({
+    path: path.resolve(
+      process.cwd(),
+      process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+    ),
+  })
+);
 
 const EnvSchema = z
   .object({
