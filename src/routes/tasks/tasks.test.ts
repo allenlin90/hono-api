@@ -24,4 +24,29 @@ describe('tasks list', () => {
 
     expectTypeOf(json).toBeArray();
   });
+
+  it('validates the id param', async () => {
+    const client = testClient(createApp().route('/', router));
+
+    const response = await client.tasks[':id'].$get({
+      param: {
+        id: 'wat',
+      },
+    });
+
+    expect(response.status).toBe(422);
+  });
+
+  it('validates the body when creating', async () => {
+    const client = testClient(createApp().route('/', router));
+
+    const response = await client.tasks.$post({
+      // @ts-expect-error
+      json: {
+        name: 'Learn vitest',
+      },
+    });
+
+    expect(response.status).toBe(422);
+  });
 });
