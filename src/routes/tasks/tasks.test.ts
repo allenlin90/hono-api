@@ -1,8 +1,8 @@
-import fs from 'node:fs';
+// import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 
 import {
-  afterAll,
+  // afterAll,
   beforeAll,
   describe,
   expect,
@@ -25,8 +25,12 @@ const client = testClient(createApp().route('/', router));
 describe('tasks list', () => {
   beforeAll(async () => {
     execSync('yarn drizzle-kit push');
-    // TODO: cleanup test db
   });
+
+  // TODO: cleanup test db
+  // afterAll(async () => {
+  //   fs.rmSync('test.db', { force: true });
+  // })
 
   it('responds with an array', async () => {
     const testRouter = createTestApp(router);
